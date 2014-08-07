@@ -11,7 +11,7 @@ class RestInPlaceEditor
 
     @$element.click(@clickHandler)
 
-    @updateDisplayValue(@$element.text())
+    @updateDisplayValue(@$element.html())
 
   # ## Public interface functions ############################################
 
@@ -154,13 +154,13 @@ class RestInPlaceEditor
     if $.trim(value).length < 1
       @$element.html(@placeholderHTML())
     else
-      @$element.text(value)
+      @$element.html(value)
 
   placeholderHTML : ->
     """<span class="rest-in-placeholder">#{@placeholder}</span>"""
 
   elementHTML: ->
-    value = @$element.text()
+    value = @$element.html()
     value = '' if value  == @placeholderHTML()
     value
 
